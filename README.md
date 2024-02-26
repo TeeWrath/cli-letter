@@ -1,6 +1,6 @@
 # Command Line Letter
 
-A CLI letter
+A CLI letter for your significant one, built using Javascript
 
 ## Try the already existing package
 
