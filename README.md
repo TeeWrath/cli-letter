@@ -1,4 +1,4 @@
-# Command Line Letter for your special one
+# Command Line Letter
 
 A CLI letter
 
