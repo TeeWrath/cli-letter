@@ -17,7 +17,7 @@ Write your name at the (Your name space), at line 16 in index.js
 ## Try the already existing package
 
 ```sh
-npx cli-love-letter
+npx cli-letter
 ```
 
 ## Packages Used
