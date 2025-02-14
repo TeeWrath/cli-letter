@@ -34,4 +34,4 @@ npx cli-letter
 npm i chalk chalk-animation figlet gradient-string inquirer nanospinner
 ```
 
-## Hit the star if this got you your valentine..
+## Hit the star if this got you your valentine...
