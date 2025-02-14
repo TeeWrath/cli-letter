@@ -1,6 +1,5 @@
 #!/usr/bin/env node
-// The above code is a shabang which determines that this is a cli tool
-
+import os from 'os';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 import gradient from 'gradient-string';
@@ -9,36 +8,56 @@ import figlet from 'figlet';
 import { createSpinner } from 'nanospinner';
 
 const sleep = (ms = 1000) => new Promise((r) => setTimeout(r, ms));
-const sleep2 = (ms = 6000) => new Promise((r) => setTimeout(r, ms));
+const sleep2 = (ms = 3000) => new Promise((r) => setTimeout(r, ms));
+
+const userName = os.userInfo().username;
 
 async function welcome(){
-    const rainbowTitle = chalkAnimation.rainbow(`This is a letter from \n`);
+    const rainbowTitle = chalkAnimation.rainbow(`This is a letter from (Your name)\n`);
 
     await sleep();
     rainbowTitle.stop();
 
-    console.log(`
-    ${chalk.bgBlue('He/she/they wants/want you to know')}
-    (Write your
-    multiline message.. ${chalk.bgRed('something in red to highlight)')}
-    `);
+    console.log(`${chalk.bgBlue('I just wanted to ask you a simple question...')}`);
+    await sleep()
+    figlet(`3...`, (err,data)=> {
+      console.log(gradient.pastel.multiline(data) + '\n');
+    })
+    await sleep()
+    figlet(`2...`, (err,data)=> {
+      console.log(gradient.pastel.multiline(data) + '\n');
+    })
+    await sleep()
+    figlet(`1...`, (err,data)=> {
+      console.log(gradient.pastel.multiline(data) + '\n');
+    })
+    await sleep()
+    console.clear();
+    console.log(`Will you be my ${chalk.bgRed('Valentine?')}`);
 }
 
 function winner() {
     console.clear();
-    figlet(`love you baby`, (err, data) => {
+    figlet(`I love you ${userName}`, (err, data) => {
       console.log(gradient.pastel.multiline(data) + '\n');
   
       console.log(
         chalk.green(
-          `(ending note)`
+          `Reasons you're the best : \n
+          1. I think you're the prettiest!! \n
+          2. Your smile melts my heart \n
+          3. You make my day best \n
+          4. My heart skips a beat when I see you \n
+          5. Thank you for existing <3 \n
+          6. I feel comfortable around you ;)`
         )
       );
       process.exit(0);
     });
   }
 
-  await welcome();
-  const spinner = createSpinner('I still...').start();
-  await sleep2();
-  await winner();
+console.clear();
+await welcome();
+const spinner = createSpinner('A few words from me...').start();
+await sleep2();
+await winner();
